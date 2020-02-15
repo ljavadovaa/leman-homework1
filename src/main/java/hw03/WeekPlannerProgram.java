@@ -20,40 +20,47 @@ public class WeekPlannerProgram {
         scedule[5][1] = "talk to your boss";
         scedule[6][0] = "Saturday";
         scedule[6][1] = "go to the lunapark";
+        String week = "";
 
-        for (int i = 0; i < 7; i++) {
+        do {
+            try {
                 System.out.println("Please, input the day of the week: ");
-                scedule[i][0] = sc.next();
-                if (scedule[i][0].equals("exit")) break;
+                week = sc.next().toLowerCase().trim();
 
-                if(!scedule[i][0].equals("Monday") && !scedule[i][0].equals("Sunday") && !scedule[i][0].equals("Tuesday") && !scedule[i][0].equals("Wednesday") && !scedule[i][0].equals("Thursday") && !scedule[i][0].equals("Friday") && !scedule[i][0].equals("Saturday"))
+                if(week.equals("exit"))
+                    break;
+
+                if(!week.equals("monday")  && !week.equals("sunday") && !week.equals("tuesday") && !week.equals("wednesday") && !week.equals("thursday") && !week.equals("friday") && !week.equals("saturday"))
                     System.out.println("enter valid weekday");
                 else
-                    switch (scedule[i][0])
+                    switch (week)
                     {
-                        case "Sunday":
+                        case "sunday":
                             System.out.printf("Your tasks for Sunday: %s\n",scedule[0][1]);
                             break;
-                        case "Monday":
+                        case "monday":
                             System.out.printf("Your tasks for Monday: %s\n",scedule[1][1]);
                             break;
-                        case "Tuesday":
+                        case "tuesday":
                             System.out.printf("Your tasks for Tuesday: %s\n",scedule[2][1]);
                             break;
-                        case "Wednesday":
+                        case "wednesday":
                             System.out.printf("Your tasks for Wednesday: %s\n",scedule[3][1]);
                             break;
-                        case "Thursday":
+                        case "thursday":
                             System.out.printf("Your tasks for Thursday: %s\n",scedule[4][1]);
                             break;
-                        case "Friday":
+                        case "friday":
                             System.out.printf("Your tasks for Friday: %s\n",scedule[5][1]);
                             break;
-                        case "Saturday":
+                        case "saturday":
                             System.out.printf("Your tasks for Saturday: %s\n",scedule[6][1]);
                             break;
                     }
-        }
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("array exception...");
+            }
+        } while (!week.equals("exit"));
 
     }
 
