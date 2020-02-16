@@ -23,7 +23,6 @@ public class WeekPlannerProgram {
         String week = "";
 
         do {
-            try {
                 System.out.println("Please, input the day of the week: ");
                 week = sc.next().toLowerCase().trim();
 
@@ -57,9 +56,7 @@ public class WeekPlannerProgram {
                             System.out.printf("Your tasks for Saturday: %s\n",scedule[6][1]);
                             break;
                     }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("array exception...");
-            }
+
         } while (!week.equals("exit"));
 
     }
