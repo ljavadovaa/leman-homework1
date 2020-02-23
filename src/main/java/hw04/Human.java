@@ -42,6 +42,7 @@ public class Human {
         else System.out.print("almost not sly");
     }
 
+
     @Override
     public String toString() {
         return String.format("Human{name='%s', surname='%s', year=%d, iq=%d, mother=%s, father=%s, pet=%s}", name, surname, year, IQ, mother, father, pet);
