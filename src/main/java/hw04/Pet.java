@@ -28,20 +28,17 @@ public class Pet {
     public void eat(){
         System.out.println("I'm eating");
     }
+
     public void respond(){
         System.out.printf("Hello, owner. I am - %s. I miss you!",nickname);
     }
+
     public void foul(){
         System.out.println("I need to cover it up");
     }
 
     @Override
     public String toString() {
-        return "dog{" +
-                "nickname='" + nickname + '\'' +
-                ", age=" + age +
-                ", tricklevel=" + tricklevel +
-                ", habits=" + Arrays.toString(habits) +
-                '}';
+        return String.format("%s{nickname='%s', age=%d, tricklevel=%d, habits=%s}", species, nickname, age, tricklevel, Arrays.toString(habits));
     }
 }
