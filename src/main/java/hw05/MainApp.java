@@ -8,7 +8,7 @@ public class MainApp {
 
         Human human = new Human();
         human.setName("Name"); human.setSurname("Surname"); human.setYear(1); human.setIQ(1);
-        human.setSchedule(new String[]{"[day, task]","[day_2, task_2]"});
+        human.setSchedule(new String[][]{{"Monday, go to courses; watch a film."},{"Tuesday, go to the cinema"}});
 
         Human mother = new Human();
         mother.setName("Jane"); mother.setSurname("Karleone");
@@ -26,6 +26,7 @@ public class MainApp {
         family.setFather(father); family.setMother(mother); family.setPet(pet); family.setChildren(new Human[]{child, child1});
         family.addChild(child); family.addChild(child1);
         family.deleteChild(0);
+
 
         System.out.println(pet.toString());
         System.out.println(family.toString());
