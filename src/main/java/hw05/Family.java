@@ -8,6 +8,7 @@ public class Family {
     private Human father;
     private Human[] children;
     private Pet pet;
+    int index=0;
 
     public Human getMother() { return mother; }
     public void setMother(Human mother) { this.mother = mother; }
@@ -19,9 +20,8 @@ public class Family {
     public void setPet(Pet pet) { this.pet = pet; }
 
     public void addChild(Human child) {
-        int i=0;
-        children[i] = child;
-        i++;
+        children[index] = child;
+        index++;
     }
 
     public int countFamily() {
@@ -29,16 +29,9 @@ public class Family {
         return countChildren+2;
     }
 
-//    public Human[] deleteChild(Human[] children, int removedIndex) {
-//        Human[] newChild = new Human[children.length-1];
-//        for (int i = 0; i < removedIndex; i++) {
-//            newChild[i] = children[i];
-//        }
-//        for (int i = removedIndex; i < children.length-1; i++) {
-//            newChild[i] = children[i+1];
-//        }
-//        return newChild;
-//    }
+    public void deleteChild(int removedIndex) {
+        children[removedIndex] = null;
+    }
 
     @Override
     public boolean equals(Object o) {

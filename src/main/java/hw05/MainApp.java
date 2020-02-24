@@ -25,6 +25,7 @@ public class MainApp {
         Family family = new Family();
         family.setFather(father); family.setMother(mother); family.setPet(pet); family.setChildren(new Human[]{child, child1});
         family.addChild(child); family.addChild(child1);
+        family.deleteChild(0);
 
         System.out.println(pet.toString());
         System.out.println(family.toString());
