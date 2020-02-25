@@ -6,7 +6,7 @@ public class Pet {
     private String species;
     private String nickname;
     private int age;
-    private int tricklevel;
+    private int trickLevel;
     private String[] habits;
 
     public String getSpecies() { return species; }
@@ -15,10 +15,18 @@ public class Pet {
     public void setNickname(String nickname) { this.nickname = nickname; }
     public int getAge() { return age; }
     public void setAge(int age) { this.age = age; }
-    public int getTricklevel() { return tricklevel; }
-    public void setTricklevel(int tricklevel) { this.tricklevel = tricklevel; }
+    public int getTrickLevel() { return trickLevel; }
+    public void setTrickLevel(int trickLevel) { this.trickLevel = trickLevel; }
     public String[] getHabits() { return habits; }
     public void setHabits(String[] habits) { this.habits = habits; }
+
+    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
+        this.species = species;
+        this.nickname = nickname;
+        this.age = age;
+        this.trickLevel = trickLevel;
+        this.habits = habits;
+    }
 
     public void eat(){
         System.out.println("I'm eating");
@@ -35,6 +43,6 @@ public class Pet {
 
     @Override
     public String toString() {
-        return String.format("%s{nickname='%s', age=%d, tricklevel=%d, habits=%s}", species, nickname, age, tricklevel, Arrays.toString(habits));
+        return String.format("%s{nickname='%s', age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, Arrays.toString(habits));
     }
 }

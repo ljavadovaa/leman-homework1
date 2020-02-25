@@ -19,6 +19,13 @@ public class Family {
     public Pet getPet() { return pet; }
     public void setPet(Pet pet) { this.pet = pet; }
 
+    public Family(Human mother, Human father, Human[] children, Pet pet) {
+        this.mother = mother;
+        this.father = father;
+        this.children = children;
+        this.pet = pet;
+    }
+
     public void addChild(Human child) {
         children[index] = child;
         index++;
@@ -29,8 +36,13 @@ public class Family {
         return countChildren+2;
     }
 
-    public void deleteChild(int removedIndex) {
-        children[removedIndex] = null;
+    public boolean deleteChild(int removedIndex) {
+        if (removedIndex < 0 || removedIndex > children.length)  return false;
+        for (int i = removedIndex; i < children.length-1; i++)
+            children[i] = children[i+1];
+        index--;
+        children = Arrays.copyOf(children,index);
+        return true;
     }
 
     @Override

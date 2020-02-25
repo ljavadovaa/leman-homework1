@@ -1,6 +1,5 @@
 package hw05;
 
-import java.util.Arrays;
 
 public class Human {
     private String name;
@@ -20,9 +19,38 @@ public class Human {
     public String[][] getSchedule() { return schedule; }
     public void setSchedule(String[][] schedule) { this.schedule = schedule; }
 
+    public Human(String name, String surname, int year, int IQ, String[][] schedule) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.IQ = IQ;
+        this.schedule = schedule;
+    }
+
+    public Human(String name, String surname, int year, int IQ) {
+        this.name = name;
+        this.surname = surname;
+        this.year = year;
+        this.IQ = IQ;
+    }
+
+    public Human(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public String convert2DArrayToString() {
+        StringBuilder sb = new StringBuilder();
+        if (schedule==null) return "";
+        for (String[] sc1 : schedule) {
+            for (String sc2 : sc1)
+                sb.append(sc2);
+        }
+        return sb.toString();
+    }
 
     @Override
     public String toString() {
-        return String.format("Human{name='%s', surname='%s', year=%d, IQ=%d, schedule=%s}", name, surname, year, IQ, Arrays.deepToString(schedule));
+        return String.format("Human{name='%s', surname='%s', year=%d, IQ=%d, schedule=%s}", name, surname, year, IQ, convert2DArrayToString());
     }
 }

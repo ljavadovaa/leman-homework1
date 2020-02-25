@@ -2,32 +2,20 @@ package hw05;
 
 public class MainApp {
     public static void main(String[] args) {
-        Pet pet = new Pet();
-        pet.setSpecies("dog"); pet.setNickname("Rock"); pet.setAge(5);
-        pet.setTricklevel(75); pet.setHabits(new String[]{"eat", "drink", "sleep"});
+        Pet pet = new Pet("dog","Rock",5,75,new String[]{"eat", "drink", "sleep"});
+        Human human = new Human("Name","Surname",1,1,new String[][]{{"Monday, go to courses; watch a film."},{"Tuesday, go to the cinema"}});
+        Human mother = new Human("Jane","Karleone");
+        Human father = new Human("Vito","Karleone");
+        Human[] children = new Human[3];
+        Human child1 = new Human("Michael","Karleone",19777,90);
+        Human child2 = new Human("Mike","Karleone",1979,91);
+        Human child3 = new Human("Matthew","Karleone",1980,89);
+        Family family = new Family(father,mother,children,pet);
 
-        Human human = new Human();
-        human.setName("Name"); human.setSurname("Surname"); human.setYear(1); human.setIQ(1);
-        human.setSchedule(new String[][]{{"Monday, go to courses; watch a film."},{"Tuesday, go to the cinema"}});
+        family.addChild(child1);  family.addChild(child2);  family.addChild(child3);
+        family.deleteChild(1);
 
-        Human mother = new Human();
-        mother.setName("Jane"); mother.setSurname("Karleone");
-
-        Human father = new Human();
-        father.setName("Vito"); father.setSurname("Karleone");
-
-        Human child = new Human();
-        child.setName("Michael"); child.setSurname("Karleone"); child.setYear(1977); child.setIQ(90);
-
-        Human child1 = new Human();
-        child1.setName("Mike"); child1.setSurname("Karleone"); child1.setYear(1979); child1.setIQ(91);
-
-        Family family = new Family();
-        family.setFather(father); family.setMother(mother); family.setPet(pet); family.setChildren(new Human[]{child, child1});
-        family.addChild(child); family.addChild(child1);
-        family.deleteChild(0);
-
-
+        //System.out.println(human.convert2DArrayToString());
         System.out.println(pet.toString());
         System.out.println(family.toString());
         System.out.println(human.toString());
