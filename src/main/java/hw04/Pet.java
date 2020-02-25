@@ -7,7 +7,7 @@ public class Pet {
     String species;
     String nickname;
     int age;
-    int tricklevel;
+    int trickLevel;
     String[] habits;
 
     public Pet(String species, String nickname) {
@@ -15,11 +15,11 @@ public class Pet {
         this.nickname = nickname;
     }
 
-    public Pet(String species, String nickname, int age, int tricklevel, String[] habits) {
+    public Pet(String species, String nickname, int age, int trickLevel, String[] habits) {
         this.species = species;
         this.nickname = nickname;
         this.age = age;
-        this.tricklevel = tricklevel;
+        this.trickLevel = trickLevel;
         this.habits = habits;
     }
 
@@ -39,6 +39,6 @@ public class Pet {
 
     @Override
     public String toString() {
-        return String.format("%s{nickname='%s', age=%d, tricklevel=%d, habits=%s}", species, nickname, age, tricklevel, Arrays.toString(habits));
+        return String.format("%s{nickname='%s', age=%d, trickLevel=%d, habits=%s}", species, nickname, age, trickLevel, Arrays.toString(habits));
     }
 }
