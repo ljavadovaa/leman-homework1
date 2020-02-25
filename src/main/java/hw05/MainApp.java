@@ -15,7 +15,7 @@ public class MainApp {
         family.addChild(child1);  family.addChild(child2);  family.addChild(child3);
         family.deleteChild(1);
 
-        System.out.println(human.convert2DArrayToString());
+        //System.out.println(human.convert2DArrayToString());
         System.out.println(pet.toString());
         System.out.println(family.toString());
         System.out.println(human.toString());

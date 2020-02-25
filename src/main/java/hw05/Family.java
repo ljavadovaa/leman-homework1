@@ -8,7 +8,7 @@ public class Family {
     private Human father;
     private Human[] children;
     private Pet pet;
-    int index=0;
+    int index = 0;
 
     public Human getMother() { return mother; }
     public void setMother(Human mother) { this.mother = mother; }

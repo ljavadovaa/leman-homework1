@@ -1,6 +1,5 @@
 package hw05;
 
-
 public class Human {
     private String name;
     private String surname;
@@ -41,7 +40,7 @@ public class Human {
 
     public String convert2DArrayToString() {
         StringBuilder sb = new StringBuilder();
-        if (schedule==null) return "";
+        if (schedule == null) return "";
         for (String[] sc1 : schedule) {
             for (String sc2 : sc1)
                 sb.append(sc2);
