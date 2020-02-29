@@ -20,7 +20,7 @@ public class MainApp {
         family1.addChild(child1);  family1.addChild(child2);  family2.addChild(child3);
         family1.deleteChild(1);
 
-        domesticCat.foul();
+        //domesticCat.foul();
         System.out.println(dog.toString());
         System.out.println(family1.toString());
         System.out.println(family2.toString());
