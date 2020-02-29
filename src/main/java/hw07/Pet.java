@@ -1,6 +1,5 @@
 package hw07;
 
-
 import java.util.Arrays;
 
 public abstract class Pet {

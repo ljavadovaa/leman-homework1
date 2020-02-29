@@ -5,8 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,13 +13,13 @@ public class FamilyTest {
 
     @BeforeEach
     void setUp() {
-        Human mother = new Human("Jane","Karleone");
-        Human father = new Human("Vito","Karleone");
-        Set<String> habits1 = new HashSet<>();
+        Woman woman = new Woman("Jane","Karleone");
+        Man man = new Man("Vito","Karleone");
+        HashSet<String> habits1 = new HashSet<>();
         habits1.add("eat"); habits1.add("drink"); habits1.add("sleep");
-        Pet pet = new Pet(Pet.Species.DOG,"Rock",5,75,habits1);
-        List<Human> children = new ArrayList<>();
-        this.task = new Family(mother, father, children,pet);
+        Dog dog = new Dog("Rock",5,75,habits1);
+        ArrayList<Human> children = new ArrayList<>();
+        this.task = new Family(woman, man, children, dog);
     }
 
     @Test
