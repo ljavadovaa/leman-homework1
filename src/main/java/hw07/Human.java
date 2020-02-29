@@ -21,7 +21,7 @@ public class Human {
     }
 
     public void greetPet() {
-        System.out.printf("Hello, %s!", Pet.Species.UNKNOWN);
+        System.out.printf("Hello, %s!", Species.UNKNOWN);
     }
 
     @Override

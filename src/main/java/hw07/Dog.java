@@ -7,7 +7,7 @@ public class Dog extends Pet {
 
     @Override
     public void foul() {
-        super.foul();
+        System.out.println("I'm dog, I need to cover it up");
     }
 
     @Override

@@ -4,11 +4,6 @@ package hw07;
 import java.util.Arrays;
 
 public abstract class Pet {
-
-    enum Species {
-        DOG, FISH, DOMESTICCAT, ROBOTOCAT, UNKNOWN;
-    }
-
     String nickname;
     int age;
     int trickLevel;
