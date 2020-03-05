@@ -11,7 +11,6 @@ public class Family {
     private int indexx = 0;
 
     public Family() {
-
     }
 
     public Human getMother() { return mother; }
