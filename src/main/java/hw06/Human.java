@@ -1,11 +1,6 @@
 package hw06;
 
 public class Human {
-
-    public Human() {
-
-    }
-
     enum DayOfWeek {
         Sunday, Monday, Tuesday, Wednesday, Thusday, Friday, Saturday;
     }
@@ -16,6 +11,9 @@ public class Human {
     private int IQ;
     private String[][] schedule;
     private Human[] children;
+
+    public Human() {
+    }
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }

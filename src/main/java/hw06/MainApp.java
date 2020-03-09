@@ -19,7 +19,7 @@ public class MainApp {
         schedule[6][0] = Human.DayOfWeek.Saturday.name();
         schedule[6][1] = "go to the lunapark";
 
-        Pet pet = new Pet(Pet.Species.DOG,"Rock",5,75,new String[]{"eat", "drink", "sleep"});
+        Pet pet = new Pet(Species.DOG,"Rock",5,75,new String[]{"eat", "drink", "sleep"});
         Human human = new Human("Name","Surname",1,1,new String[][]{{Human.DayOfWeek.Monday.name(),", go to courses; watch a film."},{Human.DayOfWeek.Tuesday.name(),", go to the cinema"}});
         Human mother = new Human("Jane","Karleone");
         Human father = new Human("Vito","Karleone");

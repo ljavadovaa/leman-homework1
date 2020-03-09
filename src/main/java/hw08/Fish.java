@@ -1,9 +1,9 @@
 package hw08;
 
-import java.util.HashSet;
+import java.util.Set;
 
 public class Fish extends Pet {
-    public Fish(String nickname, int age, int trickLevel, HashSet<String> habits) {
+    public Fish(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname,age,trickLevel,habits);
     }
 

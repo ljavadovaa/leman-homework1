@@ -1,24 +1,25 @@
 package hw08;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class Family {
     private Woman woman;
     private Man man;
-    private ArrayList<Human> children;
-    private Pet pet;
+    private List<Human> children;
+    private Set<Pet> pet;
 
 
     public Woman getWoman() { return woman; }
     public void setWoman(Woman woman) { this.woman = woman; }
     public Man getMan() { return man; }
     public void setMan(Man man) { this.man = man; }
-    public ArrayList<Human> getChildren() { return children; }
-    public void setChildren(ArrayList<Human> children) { this.children = children; }
-    public Pet getPet() { return pet; }
-    public void setPet(Pet pet) { this.pet = pet; }
+    public List<Human> getChildren() { return children; }
+    public void setChildren(List<Human> children) { this.children = children; }
+    public Set<Pet> getPet() { return pet; }
+    public void setPet(Set<Pet> pet) { this.pet = pet; }
 
-    public Family(Woman woman, Man man, ArrayList<Human> children, Pet pet) {
+    public Family(Woman woman, Man man, List<Human> children, Set<Pet> pet) {
         this.woman = woman;
         this.man = man;
         this.children = children;

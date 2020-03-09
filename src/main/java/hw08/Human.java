@@ -1,6 +1,6 @@
 package hw08;
 
-import java.util.HashMap;
+import java.util.Map;
 
 public class Human {
 
@@ -8,7 +8,7 @@ public class Human {
     private String surname;
     private int year;
     private int IQ;
-    private HashMap< String,String> schedule;
+    private Map<DaysOfWeek, String> schedule;
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -18,10 +18,10 @@ public class Human {
     public void setYear(int year) { this.year = year; }
     public int getIQ() { return IQ; }
     public void setIQ(int IQ) { this.IQ = IQ; }
-    public HashMap< String,String> getSchedule() { return schedule; }
-    public void setSchedule(HashMap< String,String> schedule) { this.schedule = schedule; }
+    public Map< DaysOfWeek,String> getSchedule() { return schedule; }
+    public void setSchedule(Map< DaysOfWeek,String> schedule) { this.schedule = schedule; }
 
-    public Human(String name, String surname, int year, int IQ, HashMap< String,String> schedule) {
+    public Human(String name, String surname, int year, int IQ, Map< DaysOfWeek,String> schedule) {
         this.name = name;
         this.surname = surname;
         this.year = year;

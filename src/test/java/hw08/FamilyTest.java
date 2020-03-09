@@ -4,7 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -15,11 +17,11 @@ public class FamilyTest {
     void setUp() {
         Woman woman = new Woman("Jane","Karleone");
         Man man = new Man("Vito","Karleone");
-        HashSet<String> habits1 = new HashSet<>();
+        Set<String> habits1 = new HashSet<>();
         habits1.add("eat"); habits1.add("drink"); habits1.add("sleep");
         Dog dog = new Dog("Rock",5,75,habits1);
         ArrayList<Human> children = new ArrayList<>();
-        this.task = new Family(woman, man, children, dog);
+        this.task = new Family(woman, man, children, Collections.singleton(dog));
     }
 
     @Test

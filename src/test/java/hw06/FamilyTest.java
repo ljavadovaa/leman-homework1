@@ -14,7 +14,7 @@ public class FamilyTest {
         Human[] child = new Human[5];
         Human mother = new Human("Jane","Karleone");
         Human father = new Human("Vito","Karleone");
-        Pet pet = new Pet(Pet.Species.DOG,"Rock",5,75,new String[]{"eat", "drink", "sleep"});
+        Pet pet = new Pet(Species.DOG,"Rock",5,75,new String[]{"eat", "drink", "sleep"});
         this.task = new Family(father,mother,child,pet);
     }
 
