@@ -9,6 +9,7 @@ public class Family {
     private Human[] children;
     private Pet pet;
     int index = 0;
+    int saveIndex = 0;
 
     public Human getMother() { return mother; }
     public void setMother(Human mother) { this.mother = mother; }
@@ -26,9 +27,13 @@ public class Family {
         this.pet = pet;
     }
 
-    public void addChild(Human child) {
+    public Human[] addChild(Human child) {
         children[index] = child;
         index++;
+        Human[] array = new Human[children.length + 1];
+        System.arraycopy(children, 0, array, 0, children.length);
+        array[children.length] = child;
+        return array;
     }
 
     public int countFamily() {
@@ -43,6 +48,18 @@ public class Family {
         index--;
         children = Arrays.copyOf(children,index);
         return true;
+    }
+
+
+    public void deleteObject(Human child) {
+        for (int i = 0; i < children.length; i++) {
+            if (child == children[i])
+                saveIndex = i;
+        }
+        for (int i = saveIndex; i < children.length-1; i++)
+            children[i] = children[i+1];
+        index--;
+        children = Arrays.copyOf(children,index);
     }
 
     @Override

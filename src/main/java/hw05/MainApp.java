@@ -7,13 +7,14 @@ public class MainApp {
         Human mother = new Human("Jane","Karleone");
         Human father = new Human("Vito","Karleone");
         Human[] children = new Human[3];
-        Human child1 = new Human("Michael","Karleone",19777,90);
+        Human child1 = new Human("Michael","Karleone",1977,90);
         Human child2 = new Human("Mike","Karleone",1979,91);
         Human child3 = new Human("Matthew","Karleone",1980,89);
         Family family = new Family(father,mother,children,pet);
 
         family.addChild(child1);  family.addChild(child2);  family.addChild(child3);
         family.deleteChild(1);
+        family.deleteObject(child3);
 
         //System.out.println(human.convert2DArrayToString());
         System.out.println(pet.toString());
