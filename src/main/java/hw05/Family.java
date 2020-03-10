@@ -42,7 +42,7 @@ public class Family {
     }
 
     public boolean deleteChild(int removedIndex) {
-        if (removedIndex < 0 || removedIndex > children.length)  return false;
+        if (removedIndex < 0 || removedIndex >= children.length)  return false;
         for (int i = removedIndex; i < children.length-1; i++)
             children[i] = children[i+1];
         index--;
@@ -52,14 +52,20 @@ public class Family {
 
 
     public void deleteObject(Human child) {
-        for (int i = 0; i < children.length; i++) {
-            if (child == children[i])
-                saveIndex = i;
+        saveIndex = children.length;
+        try {
+            for (int i = 0; i < children.length; i++) {
+                if (child == children[i])
+                    saveIndex = i;
+            }
+            for (int i = saveIndex; i < children.length-1; i++)
+                children[i] = children[i+1];
+            index--;
+            children = Arrays.copyOf(children,index);
+        } catch (Exception e) {
+            System.out.println("It's not deleted");
         }
-        for (int i = saveIndex; i < children.length-1; i++)
-            children[i] = children[i+1];
-        index--;
-        children = Arrays.copyOf(children,index);
+
     }
 
     @Override
