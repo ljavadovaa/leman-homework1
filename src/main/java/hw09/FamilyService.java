@@ -1,0 +1,96 @@
+package hw09;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+
+public class FamilyService {
+    FamilyDao famDao = new CollectionFamilyDao();
+    List<Family> fam = famDao.getAllFamilies();
+
+    public List<Family> displayAllFamilies() {
+        return fam;
+    }
+
+    public List<Family> getFamiliesBiggerThan(int numMore) {
+        List<Family> more = new ArrayList<>();
+        for (Family f : fam)
+            if (f.countFamily() > numMore)
+                more.add(f);
+        return more;
+    }
+
+    public List<Family> getFamiliesLessThan(int numLess) {
+        List<Family> less = new ArrayList<>();
+        for (Family f : fam)
+            if (f.countFamily() < numLess)
+                less.add(f);
+        return less;
+    }
+
+    public int countFamiliesWithMemberNumber(int num) {
+        int countt = 0;
+        for (Family f : fam) {
+            if (f.countFamily() == num)
+                countt++;
+        }
+        return countt;
+    }
+
+    public void createNewFamily(Woman mother, Man father) {
+        List<Human> children = new ArrayList<>();
+        HashSet<Pet> pets = new HashSet<>();
+        Family family = new Family(mother, father, children);
+        family.setPet(pets);
+        fam.add(family);
+    }
+
+    public Family bornChild(Family family, String fem, String masc) {
+        int rand = (int) (Math.random() * 2);
+        String childName;
+        if (rand == 0) childName = fem;
+        else childName = masc;
+        Human child = new Human();
+        family.addChild(child);
+        child.setName(childName);
+        child.setSurname(family.getMan().getSurname());
+        return family;
+    }
+
+    public Family adoptChild(Family family, Human child) {
+        if (child != null)
+            child.setSurname(family.getMan().getSurname());
+        if (family != null)
+            family.addChild(child);
+        famDao.saveFamily(family);
+        return family;
+    }
+
+    public void deleteAllChildrenOlderThen(int age) {
+        for (Family f : fam) {
+            int year = LocalDate.now().getYear();
+            f.getChildren().removeIf(c -> age < (year-c.getYear()));
+            famDao.saveFamily(f);
+        }
+    }
+
+    public int count(){
+        return fam.size();
+    }
+
+    public Family getFamilyById(int index) {
+        return fam.get(index);
+    }
+
+    public HashSet<Pet> getPets(int index) {
+        return fam.get(index).getPet();
+    }
+
+    public void addPet(int index, Pet p) {
+        fam.get(index).getPet().add(p);
+        famDao.saveFamily(fam.get(index));
+    }
+
+}
