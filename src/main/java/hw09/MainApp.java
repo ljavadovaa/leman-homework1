@@ -69,6 +69,7 @@ public class MainApp {
         fc.createNewFamily(woman3,man3);
         fc.bornChild(family2,"Lisa","Mac");
         System.out.println(fc.displayAllFamilies());
+        System.out.println(fc.getAllFamilies());
 
        // System.out.println(human.toString());
     }

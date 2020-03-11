@@ -6,7 +6,11 @@ import java.util.List;
 public class FamilyController {
     FamilyService famServ = new FamilyService();
 
-    public List<Family> displayAllFamilies() {
+    public List<Family> getAllFamilies() {
+        return famServ.getAllFamilies();
+    }
+
+    public List<Family>  displayAllFamilies() {
         return famServ.displayAllFamilies();
     }
 

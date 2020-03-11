@@ -4,15 +4,16 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Random;
 
 public class FamilyService {
     FamilyDao famDao = new CollectionFamilyDao();
     List<Family> fam = famDao.getAllFamilies();
 
-    public List<Family> displayAllFamilies() {
+    public List<Family> getAllFamilies() {
         return fam;
     }
+
+    public List<Family> displayAllFamilies() { return fam; }
 
     public List<Family> getFamiliesBiggerThan(int numMore) {
         List<Family> more = new ArrayList<>();
