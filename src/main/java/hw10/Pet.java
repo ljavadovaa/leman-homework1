@@ -1,12 +1,12 @@
 package hw10;
 
-import java.util.HashSet;
+import java.util.Set;
 
 public abstract class Pet {
     String nickname;
     int age;
     int trickLevel;
-    HashSet<String> habits;
+    Set<String> habits;
 
     public String getNickname() { return nickname; }
     public void setNickname(String nickname) { this.nickname = nickname; }
@@ -14,14 +14,14 @@ public abstract class Pet {
     public void setAge(int age) { this.age = age; }
     public int getTrickLevel() { return trickLevel; }
     public void setTrickLevel(int trickLevel) { this.trickLevel = trickLevel; }
-    public HashSet<String> getHabits() { return habits; }
-    public void setHabits(HashSet<String> habits) { this.habits = habits; }
+    public Set<String> getHabits() { return habits; }
+    public void setHabits(Set<String> habits) { this.habits = habits; }
 
     public Pet(String nickname) {
         this.nickname = nickname;
     }
 
-    public Pet( String nickname, int age, int trickLevel, HashSet<String> habits) {
+    public Pet( String nickname, int age, int trickLevel, Set<String> habits) {
         this.nickname = nickname;
         this.age = age;
         this.trickLevel = trickLevel;

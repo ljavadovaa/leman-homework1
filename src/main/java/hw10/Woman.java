@@ -1,8 +1,8 @@
 package hw10;
 
 final class Woman extends Human {
-    public Woman(String name, String surname) {
-        super(name, surname);
+    public Woman(String name, String surname, String birthDate) {
+        super(name, surname, birthDate);
     }
 
     @Override

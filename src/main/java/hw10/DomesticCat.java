@@ -1,9 +1,10 @@
 package hw10;
 
-import java.util.HashSet;
+
+import java.util.Set;
 
 public class DomesticCat extends Pet {
-    public DomesticCat(String nickname, int age, int trickLevel, HashSet<String> habits) {
+    public DomesticCat(String nickname, int age, int trickLevel, Set<String> habits) {
         super(nickname,age,trickLevel,habits);
     }
 

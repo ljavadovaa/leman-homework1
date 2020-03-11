@@ -1,8 +1,8 @@
 package hw10;
 
 final class Man extends Human {
-    public Man(String name, String surname) {
-        super(name, surname);
+    public Man(String name, String surname, String birthDate) {
+        super(name, surname, birthDate);
     }
 
     @Override
