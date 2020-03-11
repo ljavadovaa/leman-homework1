@@ -13,7 +13,14 @@ public class FamilyService {
         return fam;
     }
 
-    public List<Family> displayAllFamilies() { return fam; }
+    public StringBuffer displayAllFamilies() {
+        StringBuffer s = new StringBuffer();
+        for (Family fam :famDao.getAllFamilies()){
+            s.append(fam);
+            s.append("\n");
+        }
+        return s;
+    }
 
     public List<Family> getFamiliesBiggerThan(int numMore) {
         List<Family> more = new ArrayList<>();

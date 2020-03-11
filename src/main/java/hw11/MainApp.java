@@ -1,4 +1,4 @@
-package hw10;
+package hw11;
 
 import hw08.DaysOfWeek;
 

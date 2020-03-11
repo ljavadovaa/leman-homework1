@@ -10,7 +10,7 @@ public class FamilyController {
         return famServ.getAllFamilies();
     }
 
-    public List<Family>  displayAllFamilies() {
+    public StringBuffer displayAllFamilies() {
         return famServ.displayAllFamilies();
     }
 

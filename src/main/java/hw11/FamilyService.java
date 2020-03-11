@@ -1,9 +1,10 @@
-package hw09;
+package hw11;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class FamilyService {
     FamilyDao famDao = new CollectionFamilyDao();
@@ -15,35 +16,25 @@ public class FamilyService {
 
     public StringBuffer displayAllFamilies() {
         StringBuffer s = new StringBuffer();
-        for (Family fam :famDao.getAllFamilies()){
+        famDao.getAllFamilies().forEach(fam -> {
             s.append(fam);
             s.append("\n");
-        }
+        });
         return s;
     }
 
     public List<Family> getFamiliesBiggerThan(int numMore) {
-        List<Family> more = new ArrayList<>();
-        for (Family f : fam)
-            if (f.countFamily() > numMore)
-                more.add(f);
+        List<Family> more = fam.stream().filter(f -> f.countFamily() > numMore).collect(Collectors.toList());
         return more;
     }
 
     public List<Family> getFamiliesLessThan(int numLess) {
-        List<Family> less = new ArrayList<>();
-        for (Family f : fam)
-            if (f.countFamily() < numLess)
-                less.add(f);
+        List<Family> less = fam.stream().filter(f -> f.countFamily() < numLess).collect(Collectors.toList());
         return less;
     }
 
     public int countFamiliesWithMemberNumber(int num) {
-        int countt = 0;
-        for (Family f : fam) {
-            if (f.countFamily() == num)
-                countt++;
-        }
+        int countt = (int) fam.stream().filter(f -> f.countFamily() == num).count();
         return countt;
     }
 
@@ -77,11 +68,11 @@ public class FamilyService {
     }
 
     public void deleteAllChildrenOlderThen(int age) {
-        for (Family f : fam) {
+        fam.forEach(f -> {
             int year = LocalDate.now().getYear();
-            f.getChildren().removeIf(c -> age < (year-c.getYear()));
+            f.getChildren().removeIf(c -> age < (year - c.getBirthDate()));
             famDao.saveFamily(f);
-        }
+        });
     }
 
     public int count(){
