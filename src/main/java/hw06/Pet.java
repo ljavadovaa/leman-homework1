@@ -1,6 +1,7 @@
 package hw06;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 public class Pet {
     private Species species;
@@ -28,11 +29,6 @@ public class Pet {
     public String[] getHabits() { return habits; }
     public void setHabits(String[] habits) { this.habits = habits; }
 
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-    }
-
     public void eat(){
         System.out.println("I'm eating");
     }
@@ -45,6 +41,29 @@ public class Pet {
         System.out.println("I need to cover it up");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pet pet = (Pet) o;
+        return age == pet.age &&
+                trickLevel == pet.trickLevel &&
+                species == pet.species &&
+                nickname.equals(pet.nickname) &&
+                Arrays.equals(habits, pet.habits);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(species, nickname, age, trickLevel);
+        result = 31 * result + Arrays.hashCode(habits);
+        return result;
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+    }
 
     @Override
     public String toString() {

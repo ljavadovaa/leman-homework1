@@ -10,9 +10,10 @@ public class MainApp {
         Human child1 = new Human("Michael","Karleone",1977,90);
         Human child2 = new Human("Mike","Karleone",1979,91);
         Human child3 = new Human("Matthew","Karleone",1980,89);
+        Human child4 = new Human("Malcolm","Karleone",1981,87);
         Family family = new Family(father,mother,children,pet);
 
-        family.addChild(child1);  family.addChild(child2);  family.addChild(child3);
+        family.addChild(child1);  family.addChild(child2);  family.addChild(child3);  family.addChild(child4);
         family.deleteChild(1);
         family.deleteObject(child1);
 

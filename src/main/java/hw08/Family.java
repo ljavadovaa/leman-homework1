@@ -9,6 +9,12 @@ public class Family {
     private List<Human> children;
     private Set<Pet> pet;
 
+    public Family(Woman woman, Man man, List<Human> children, Set<Pet> pet) {
+        this.woman = woman;
+        this.man = man;
+        this.children = children;
+        this.pet = pet;
+    }
 
     public Woman getWoman() { return woman; }
     public void setWoman(Woman woman) { this.woman = woman; }
@@ -18,13 +24,6 @@ public class Family {
     public void setChildren(List<Human> children) { this.children = children; }
     public Set<Pet> getPet() { return pet; }
     public void setPet(Set<Pet> pet) { this.pet = pet; }
-
-    public Family(Woman woman, Man man, List<Human> children, Set<Pet> pet) {
-        this.woman = woman;
-        this.man = man;
-        this.children = children;
-        this.pet = pet;
-    }
 
     public void addChild(Human child) {
         children.add(child);

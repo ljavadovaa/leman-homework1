@@ -8,6 +8,11 @@ public class Fish extends Pet {
     }
 
     @Override
+    public void eat() {
+        System.out.println("I'm fish, I can eat something");
+    }
+
+    @Override
     public void respond() {
         System.out.printf("Hello, owner. I am - %s. I miss you!\n",Species.FISH);
     }

@@ -1,10 +1,9 @@
 package hw06;
 
-public class Human {
-    enum DayOfWeek {
-        Sunday, Monday, Tuesday, Wednesday, Thusday, Friday, Saturday;
-    }
+import java.util.Arrays;
+import java.util.Objects;
 
+public class Human {
     private String name;
     private String surname;
     private int year;
@@ -12,19 +11,7 @@ public class Human {
     private String[][] schedule;
     private Human[] children;
 
-    public Human() {
-    }
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getSurname() { return surname; }
-    public void setSurname(String surname) { this.surname = surname; }
-    public int getYear() { return year; }
-    public void setYear(int year) { this.year = year; }
-    public int getIQ() { return IQ; }
-    public void setIQ(int IQ) { this.IQ = IQ; }
-    public String[][] getSchedule() { return schedule; }
-    public void setSchedule(String[][] schedule) { this.schedule = schedule; }
+    public Human() { }
 
     public Human(String name, String surname, int year, int IQ, String[][] schedule) {
         this.name = name;
@@ -46,8 +33,34 @@ public class Human {
         this.surname = surname;
     }
 
-    public Human(Human father, Human mother, Human[] child, Pet pet) {
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getSurname() { return surname; }
+    public void setSurname(String surname) { this.surname = surname; }
+    public int getYear() { return year; }
+    public void setYear(int year) { this.year = year; }
+    public String[][] getSchedule() { return schedule; }
+    public void setSchedule(String[][] schedule) { this.schedule = schedule; }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Human human = (Human) o;
+        return year == human.year &&
+                IQ == human.IQ &&
+                name.equals(human.name) &&
+                surname.equals(human.surname) &&
+                Arrays.equals(schedule, human.schedule) &&
+                Arrays.equals(children, human.children);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Objects.hash(name, surname, year, IQ);
+        result = 31 * result + Arrays.hashCode(schedule);
+        result = 31 * result + Arrays.hashCode(children);
+        return result;
     }
 
     @Override
@@ -55,18 +68,8 @@ public class Human {
         super.finalize();
     }
 
-    public String convert2DArrayToString() {
-        StringBuilder sb = new StringBuilder();
-        if (schedule == null) return "";
-        for (String[] sc1 : schedule) {
-            for (String sc2 : sc1)
-                sb.append(sc2);
-        }
-        return sb.toString();
-    }
-
     @Override
     public String toString() {
-        return String.format("Human{name='%s', surname='%s', year=%d, IQ=%d, schedule=%s}", name, surname, year, IQ, convert2DArrayToString());
+        return String.format("Human{name='%s', surname='%s', year=%d, IQ=%d, schedule=%s}", name, surname, year, IQ, Arrays.deepToString(schedule));
     }
 }

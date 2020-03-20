@@ -10,17 +10,6 @@ public class Human {
     private int IQ;
     private Map<DaysOfWeek, String> schedule;
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getSurname() { return surname; }
-    public void setSurname(String surname) { this.surname = surname; }
-    public int getYear() { return year; }
-    public void setYear(int year) { this.year = year; }
-    public int getIQ() { return IQ; }
-    public void setIQ(int IQ) { this.IQ = IQ; }
-    public Map< DaysOfWeek,String> getSchedule() { return schedule; }
-    public void setSchedule(Map< DaysOfWeek,String> schedule) { this.schedule = schedule; }
-
     public Human(String name, String surname, int year, int IQ, Map< DaysOfWeek,String> schedule) {
         this.name = name;
         this.surname = surname;
@@ -40,6 +29,15 @@ public class Human {
         this.name = name;
         this.surname = surname;
     }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getSurname() { return surname; }
+    public void setSurname(String surname) { this.surname = surname; }
+    public int getYear() { return year; }
+    public void setYear(int year) { this.year = year; }
+    public Map< DaysOfWeek,String> getSchedule() { return schedule; }
+    public void setSchedule(Map< DaysOfWeek,String> schedule) { this.schedule = schedule; }
 
     public void greetPet() {
         System.out.printf("Hello, %s!", Species.UNKNOWN);

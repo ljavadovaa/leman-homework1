@@ -8,15 +8,6 @@ public abstract class Pet {
     int trickLevel;
     Set<String> habits;
 
-    public String getNickname() { return nickname; }
-    public void setNickname(String nickname) { this.nickname = nickname; }
-    public int getAge() { return age; }
-    public void setAge(int age) { this.age = age; }
-    public int getTrickLevel() { return trickLevel; }
-    public void setTrickLevel(int trickLevel) { this.trickLevel = trickLevel; }
-    public Set<String> getHabits() { return habits; }
-    public void setHabits(Set<String> habits) { this.habits = habits; }
-
     public Pet(String nickname) {
         this.nickname = nickname;
     }
@@ -29,6 +20,19 @@ public abstract class Pet {
     }
 
     public Pet() { }
+
+    public String getNickname() { return nickname; }
+    public void setNickname(String nickname) { this.nickname = nickname; }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+    public int getTrickLevel() { return trickLevel; }
+    public void setTrickLevel(int trickLevel) { this.trickLevel = trickLevel; }
+    public Set<String> getHabits() { return habits; }
+    public void setHabits(Set<String> habits) { this.habits = habits; }
+
+    public void eat(){
+        System.out.println("I need to eat to live");
+    }
 
     public abstract void respond();
 
