@@ -61,9 +61,9 @@ public class FamilyService {
         if (rand == 0) childName = fem;
         else childName = masc;
         Human child = new Human();
-        family.addChild(child);
         child.setName(childName);
         child.setSurname(family.getMan().getSurname());
+        family.addChild(child);
         return family;
     }
 
@@ -80,7 +80,6 @@ public class FamilyService {
         for (Family f : fam) {
             int year = LocalDate.now().getYear();
             f.getChildren().removeIf(c -> age < (year-c.getYear()));
-            famDao.saveFamily(f);
         }
     }
 
@@ -89,7 +88,7 @@ public class FamilyService {
     }
 
     public Family getFamilyById(int index) {
-        return fam.get(index);
+        return famDao.getFamilyByIndex(index);
     }
 
     public HashSet<Pet> getPets(int index) {

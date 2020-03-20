@@ -25,14 +25,14 @@ public class CollectionFamilyDao implements FamilyDao{
     @Override
     public boolean deleteFamily(Family family) {
         fam.remove(fam.get(fam.indexOf(family)));
+        fam.remove(family);
         return true;
     }
 
     @Override
     public void saveFamily(Family family) {
         if (fam.contains(family)) {
-            Family family1 = fam.get(fam.indexOf(family));
-            family1 = family;
+            Family family1 = family;
         } else
             fam.add(family);
     }

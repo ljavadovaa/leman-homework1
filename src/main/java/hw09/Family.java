@@ -2,6 +2,7 @@ package hw09;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class Family {
@@ -53,6 +54,22 @@ public class Family {
 
     public void deleteChildObject(Human child) {
         children.remove(child);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Family family = (Family) o;
+        return woman.equals(family.woman) &&
+                man.equals(family.man) &&
+                children.equals(family.children) &&
+                pet.equals(family.pet);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(woman, man, children, pet);
     }
 
     @Override
