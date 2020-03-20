@@ -11,23 +11,11 @@ import java.util.Date;
 import java.util.Map;
 
 public class Human {
-
     private String name;
     private String surname;
     private long birthDate;
     private int IQ;
     private Map<DaysOfWeek, String> schedule;
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getSurname() { return surname; }
-    public void setSurname(String surname) { this.surname = surname; }
-    public long getBirthDate() { return birthDate; }
-    public void setBirthDate(long birthDate) { this.birthDate = birthDate; }
-    public int getIQ() { return IQ; }
-    public void setIQ(int IQ) { this.IQ = IQ; }
-    public Map<DaysOfWeek,String> getSchedule() { return schedule; }
-    public void setSchedule(Map<DaysOfWeek,String> schedule) { this.schedule = schedule; }
 
     public Human(String name, String surname, String birthDate, int IQ, Map<DaysOfWeek,String> schedule) {
         this.name = name;
@@ -69,8 +57,15 @@ public class Human {
         }
     }
 
-    public Human() {
-    }
+    public Human() { }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public String getSurname() { return surname; }
+    public void setSurname(String surname) { this.surname = surname; }
+    public long getBirthDate() { return birthDate; }
+    public Map<DaysOfWeek,String> getSchedule() { return schedule; }
+    public void setSchedule(Map<DaysOfWeek,String> schedule) { this.schedule = schedule; }
 
     public void greetPet() {
         System.out.printf("Hello, %s!", Species.UNKNOWN);
