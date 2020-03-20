@@ -30,6 +30,10 @@ public abstract class Pet {
 
     public Pet() { }
 
+    public void eat(){
+        System.out.println("I need to eat to live");
+    }
+
     public abstract void respond();
 
     public void foul(){

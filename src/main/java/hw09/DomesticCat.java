@@ -14,6 +14,11 @@ public class DomesticCat extends Pet {
     }
 
     @Override
+    public void eat() {
+        System.out.println("I'm cat, I can eat something");
+    }
+
+    @Override
     public void respond() {
         System.out.printf("Hello, owner. I am - %s. I miss you!\n", Species.DOMESTICCAT);
     }

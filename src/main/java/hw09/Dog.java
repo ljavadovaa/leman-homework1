@@ -13,6 +13,11 @@ public class Dog extends Pet {
     }
 
     @Override
+    public void eat() {
+        System.out.println("I'm dog, I can eat something");
+    }
+
+    @Override
     public void respond() {
         System.out.printf("Hello, owner. I am - %s. I miss you!\n", Species.DOG);
     }
