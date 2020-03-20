@@ -15,6 +15,13 @@ public class Family {
         this.children = children;
     }
 
+    public Family(Woman woman, Man man, List<Human> children, HashSet<Pet> pet) {
+        this.woman = woman;
+        this.man = man;
+        this.children = children;
+        this.pet = pet;
+    }
+
     public Woman getWoman() { return woman; }
     public void setWoman(Woman woman) { this.woman = woman; }
     public Man getMan() { return man; }
@@ -23,14 +30,7 @@ public class Family {
     public void setChildren(List<Human> children) { this.children = children; }
     public HashSet<Pet> getPet() { return pet; }
     public void setPet(HashSet<Pet> pet) { this.pet = pet; }
-
-    public Family(Woman woman, Man man, List<Human> children, HashSet<Pet> pet) {
-        this.woman = woman;
-        this.man = man;
-        this.children = children;
-        this.pet = pet;
-    }
-
+    
     public void addChild(Human child) {
         children.add(child);
     }
