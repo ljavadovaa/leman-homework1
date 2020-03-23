@@ -1,4 +1,6 @@
-package hw11;
+package hw12.dao;
+
+import hw12.entities.Family;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +33,7 @@ public class CollectionFamilyDao implements FamilyDao {
     @Override
     public void saveFamily(Family family) {
         if (fam.contains(family)) {
-            Family family1 = family;
+            Family family1  = family;
         } else
             fam.add(family);
     }
