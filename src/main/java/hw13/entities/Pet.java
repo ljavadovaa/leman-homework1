@@ -3,11 +3,11 @@ package hw13.entities;
 import java.util.Set;
 
 public abstract class Pet {
-    String nickname;
-    int age;
-    int trickLevel;
-    Set<String> habits;
-    Species species;
+    private String nickname;
+    private int age;
+    private int trickLevel;
+    private Set<String> habits;
+    private Species species;
 
     public Pet(String nickname) {
         this.nickname = nickname;
@@ -46,7 +46,6 @@ public abstract class Pet {
     public void foul(){
         System.out.println("I need to cover it up");
     }
-
 
     @Override
     public String toString() {

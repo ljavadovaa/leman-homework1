@@ -58,7 +58,7 @@ public class CollectionFamilyDao implements FamilyDao {
             }
             bw.close();
         } catch (IOException e) {
-            System.out.printf("File: '%s' not found!\n", file);
+            System.out.printf("File:'%s' not found!\n", file);
             try {
                 BufferedWriter bw = new BufferedWriter(new FileWriter(file));
                 for (Family family : fam) {
@@ -76,72 +76,68 @@ public class CollectionFamilyDao implements FamilyDao {
         File file = new File("src/main/java/hw13/database/famData.txt");
         List<Family> familyArrayList = new ArrayList<>();
 
-        if(fam.size()==0) {
+        if(fam.size() == 0) {
             try {
                 List<String> lines = new BufferedReader(new FileReader(file)).lines().collect(Collectors.toList());
                 lines.stream().map(line -> line.split("@")).forEach(splitted -> {
-                    String[] mother = splitted[0].split("-");
+                String[] mother = splitted[0].split("-");
 
-                    long birthLongMom = Long.parseLong(mother[2]);
-                    LocalDate date = Instant.ofEpochMilli(birthLongMom).atZone(ZoneId.systemDefault()).toLocalDate();
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-                    String formattedBirthDateMom = date.format(formatter);
+                long mBirth = Long.parseLong(mother[2]);
+                LocalDate date = Instant.ofEpochMilli(mBirth).atZone(ZoneId.systemDefault()).toLocalDate();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                String mFormattedBirth = date.format(formatter);
 
-                    Woman woman = new Woman(mother[0], mother[1], formattedBirthDateMom, Integer.parseInt(mother[3]));
+                Woman woman = new Woman(mother[0], mother[1], mFormattedBirth, Integer.parseInt(mother[3]));
 
-                    String[] father = splitted[1].split("-");
+                String[] father = splitted[1].split("-");
 
-                    long birthLongDad = Long.parseLong(father[2]);
-                    LocalDate date2 = Instant.ofEpochMilli(birthLongDad).atZone(ZoneId.systemDefault()).toLocalDate();
-                    String formattedBirthDateDad = date2.format(formatter);
+                long dBirth = Long.parseLong(father[2]);
+                LocalDate date1 = Instant.ofEpochMilli(dBirth).atZone(ZoneId.systemDefault()).toLocalDate();
+                String dFormattedBirth = date1.format(formatter);
 
-                    Man man = new Man(father[0], father[1], formattedBirthDateDad, Integer.parseInt(father[3]));
+                Man man = new Man(father[0], father[1], dFormattedBirth, Integer.parseInt(father[3]));
 
-                    String[] children = splitted[2].split(",");
-                    String[] pets = splitted[3].split("&");
+                String[] children = splitted[2].split(",");
+                String[] pets = splitted[3].split("&");
 
-                    ArrayList<Human> childrenList = new ArrayList<>();
-                    HashSet<Pet> petSet = new HashSet<>();
+                ArrayList<Human> childrenList = new ArrayList<>();
+                HashSet<Pet> petSet = new HashSet<>();
 
-                    for (String childData : children) {
-                        String[] c1 = childData.split("-");
-                        String name = c1[0].replaceAll("\\[", "").trim();
-                        String surname = c1[1];
-                        String birthDate = c1[2];
-                        String iq = c1[3].replaceAll("]", "");
+                for (String c : children) {
+                    String[] c1 = c.split("-");
+                    String name = c1[0].replaceAll("\\[", "").trim();
+                    String surname = c1[1];
+                    String birthDate = c1[2];
+                    String IQ = c1[3].replaceAll("]", "");
 
-                        long birthLong = Long.parseLong(birthDate);
-                        LocalDate date3 = Instant.ofEpochMilli(birthLong).atZone(ZoneId.systemDefault()).toLocalDate();
-                        String formattedBirthDate = date3.format(formatter);
+                    long birth = Long.parseLong(birthDate);
+                    LocalDate date2 = Instant.ofEpochMilli(birth).atZone(ZoneId.systemDefault()).toLocalDate();
+                    String formattedBirth = date2.format(formatter);
 
-                        childrenList.add(new Human(name, surname, formattedBirthDate, Integer.parseInt(iq)));
-                    }
+                    childrenList.add(new Human(name, surname, formattedBirth, Integer.parseInt(IQ)));
+                }
 
-                    for (String petData : pets) {
-                        String[] p1 = petData.split("#");
-                        String name = p1[1];
-                        String age = p1[2];
-                        String trickLevel = p1[3];
-                        String habits = p1[4].replaceAll(";\\[", "").replaceAll("]", "");
+                for (String p : pets) {
+                    String[] p1 = p.split("#");
+                    String name = p1[1];
+                    String age = p1[2];
+                    String trickLevel = p1[3];
+                    String habits = p1[4].replaceAll(";\\[", "").replaceAll("]", "");
 
-                        String[] habitArray = habits.split(", ");
+                    String[] habitArray = habits.split(", ");
 
-                        Set<String> habitSet = new HashSet<>();
-                        for (String h : habitArray) habitSet.add(h);
+                    Set<String> habitSet = new HashSet<>();
+                    for (String h : habitArray) habitSet.add(h);
 
-                        petSet.add(new Dog(name, Integer.parseInt(age), Integer.parseInt(trickLevel), habitSet));
-
-                    }
-                    familyArrayList.add(new Family(woman, man, childrenList, petSet));
+                    petSet.add(new Dog(name, Integer.parseInt(age), Integer.parseInt(trickLevel), habitSet));
+                }
+                familyArrayList.add(new Family(woman, man, childrenList, petSet));
                 });
                 fam.addAll(familyArrayList);
 
             } catch (IOException e) {
-                System.out.printf(" Database fileeeeeeeeee: '%s' not found! \n", file);
+                System.out.printf("'%s' not found! \n", file);
             }
         }
-
-
-
     }
 }

@@ -9,17 +9,17 @@ public class Console {
   public static void main(String[] args) {
     StringBuilder inputs = new StringBuilder();
     inputs
-            .append("1. Fill with test data.\n")
-            .append("2. Display the entire list of families.\n")
-            .append("3. Display a list of families where the number of people is greater than the specified number.\n")
-            .append("4. Display a list of families where the number of people is less than the specified number.\n")
-            .append("5. Calculate the number of families with the number of members.\n")
-            .append("6. Create a new family.\n")
-            .append("7. Delete a family by its index in the general list.\n")
-            .append("8. Edit a family by its index in the general list.\n")
-            .append("9. Remove all children over the age of majority.\n")
-            .append("10. Save data.\n")
-            .append("Please enter a command:");
+      .append("1. Fill with test data.\n")
+      .append("2. Display the entire list of families.\n")
+      .append("3. Display a list of families where the number of people is greater than the specified number.\n")
+      .append("4. Display a list of families where the number of people is less than the specified number.\n")
+      .append("5. Calculate the number of families with the number of members.\n")
+      .append("6. Create a new family.\n")
+      .append("7. Delete a family by its index in the general list.\n")
+      .append("8. Edit a family by its index in the general list.\n")
+      .append("9. Remove all children over the age of majority.\n")
+      .append("10. Save data.\n\n")
+      .append("Please enter a command:");
 
     Scanner sc = new Scanner(System.in);
     FamilyController fc = new FamilyController();
@@ -31,7 +31,7 @@ public class Console {
       switch (input) {
         case "1":{
           fc.getData();
-          System.out.println("Data loaded. Press enter to go back to main menu");
+          System.out.println("Data loaded. Press 'Enter' to go back to main menu");
           input = sc.nextLine();
           break;
         }
@@ -41,7 +41,7 @@ public class Console {
           break;
         }
         case "3": {
-          System.out.println("enter a number");
+          System.out.println("Enter a number");
           int num = sc.nextInt();
           for (Family f: fc.getFamiliesBiggerThan(num))
             System.out.println(f.prettyFormat());
@@ -49,7 +49,7 @@ public class Console {
           break;
         }
         case "4": {
-          System.out.println("enter a number");
+          System.out.println("Enter a number");
           int num = sc.nextInt();
           for (Family f: fc.getFamiliesLessThan(num))
             System.out.println(f.prettyFormat());
@@ -57,7 +57,7 @@ public class Console {
           break;
         }
         case "5": {
-          System.out.println("enter a number");
+          System.out.println("Enter a number");
           int num = sc.nextInt();
           System.out.println(fc.countFamiliesWithMemberNumber(num));
           input = sc.nextLine();
@@ -65,59 +65,58 @@ public class Console {
         }
         case "6": {
           System.out.print("Enter mother's name:");
-          String mothersName = sc.nextLine();
+          String mName = sc.nextLine();
 
           System.out.print("Enter mother's surname:");
-          String mothersSurname = sc.nextLine();
+          String mSurname = sc.nextLine();
 
           System.out.print("Enter mother's birthyear:");
-          String mothersBirthYear = sc.nextLine();
+          String mBirthYear = sc.nextLine();
 
           System.out.print("Enter mother's birthmonth:");
-          String mothersBirthMonth = sc.nextLine();
+          String mBirthMonth = sc.nextLine();
 
           System.out.print("Enter mother's birthday:");
-          String mothersBirthDay = sc.nextLine();
+          String mBirthDay = sc.nextLine();
 
           System.out.print("Enter mother's IQ:");
-          int motherIq = Integer.parseInt(sc.nextLine());
+          int mIQ = Integer.parseInt(sc.nextLine());
 
-          StringBuilder mothersBirthDate = new StringBuilder();
-          mothersBirthDate.append(mothersBirthDay).append("/").append(mothersBirthMonth).append("/").append(mothersBirthYear);
+          StringBuilder mBirthDate = new StringBuilder();
+          mBirthDate.append(mBirthDay).append("/").append(mBirthMonth).append("/").append(mBirthYear);
 
           System.out.print("Enter father's name:");
-          String fathersName = sc.nextLine();
+          String fName = sc.nextLine();
 
           System.out.print("Enter father's surname:");
-          String fathersSurname = sc.nextLine();
+          String fSurname = sc.nextLine();
 
           System.out.print("Enter father's birthyear:");
-          String fathersBirthYear = sc.nextLine();
+          String fBirthYear = sc.nextLine();
 
           System.out.print("Enter father's birthmonth:");
-          String fathersBirthMonth = sc.nextLine();
+          String fBirthMonth = sc.nextLine();
 
           System.out.print("Enter father's birthday:");
-          String fathersBirthDay = sc.nextLine();
+          String fBirthDay = sc.nextLine();
 
           System.out.print("Enter father's IQ:");
-          int fathersIq = Integer.parseInt(sc.nextLine());
+          int fIQ = Integer.parseInt(sc.nextLine());
 
-          StringBuilder fathersBirthDate = new StringBuilder();
-          fathersBirthDate.append(fathersBirthDay).append("/").append(fathersBirthMonth).append("/").append(fathersBirthYear);
+          StringBuilder fBirthDate = new StringBuilder();
+          fBirthDate.append(fBirthDay).append("/").append(fBirthMonth).append("/").append(fBirthYear);
 
-          Man father = new Man(fathersName, fathersSurname, fathersBirthDate.toString());
-          Woman mother = new Woman(mothersName, mothersSurname, mothersBirthDate.toString());
-          father.setIQ(fathersIq);
-          mother.setIQ(motherIq);
+          Man father = new Man(fName, fSurname, fBirthDate.toString());
+          Woman mother = new Woman(mName, mSurname, mBirthDate.toString());
+          father.setIQ(fIQ);
+          mother.setIQ(mIQ);
 
           Set<String> habits = new HashSet<>();
           habits.add("eat"); habits.add("drink"); habits.add("sleep");
 
-
           ArrayList<Human> children = new ArrayList<>();
           HashSet<Pet> pets = new HashSet<>();
-          Dog dog = new Dog("Rock",5,75,habits);
+          Dog dog = new Dog("Rock",5,75, habits);
           Family family = new Family(mother, father, children);
           family.setPet(pets);
           pets.add(dog);
@@ -128,7 +127,7 @@ public class Console {
           break;
         }
         case "7": {
-          System.out.println("Please enter family's ID");
+          System.out.println("Enter family's ID");
           try {
             int familyID = sc.nextInt();
             fc.getAllFamilies().remove(familyID - 1);
@@ -144,45 +143,46 @@ public class Console {
           try {
             if (opr.equals("1")) {
               System.out.println("Enter family's ID");
-              int familyIDtoBirth = sc.nextInt();
-              if (fc.getFamilyById(familyIDtoBirth).countFamily() < 5) {
-                System.out.println("Enter a boy's name");
-                String boysName = sc.next();
+              int familyIDToB = sc.nextInt();
 
-                System.out.println("Enter a girl's name");
-                String girlsName = sc.next();
+              if (fc.getFamilyById(familyIDToB).countFamily() < 4) {
+                System.out.println("Enter boy's name");
+                String bName = sc.next();
 
-                fc.bornChild(fc.getFamilyById(familyIDtoBirth), boysName, girlsName);
-                fc.saveFamily(fc.getFamilyById(familyIDtoBirth));
-              } else throw new FamilyOverflowException("Family member's cannot bigger than 5!");
+                System.out.println("Enter girl's name");
+                String gName = sc.next();
+
+                fc.bornChild(fc.getFamilyById(familyIDToB), bName, gName);
+                fc.saveFamily(fc.getFamilyById(familyIDToB));
+              } else throw new FamilyOverflowException("Family member's cannot bigger than 4!");
             }
             else if (opr.equals("2")) {
               System.out.println("Enter family's ID");
-              int familyIDToAdopt = sc.nextInt();
-              if (fc.getFamilyById(familyIDToAdopt).countFamily() < 5) {
-                System.out.println("Enter a child's name");
-                String childsName = sc.next();
+              int familyIDToA = sc.nextInt();
 
-                System.out.println("Enter a child's surname");
-                String childsSurname = sc.next();
+              if (fc.getFamilyById(familyIDToA).countFamily() < 4) {
+                System.out.println("Enter child's name");
+                String cName = sc.next();
 
-                System.out.println("Enter a child's birthdate like 'dd/MM/yyyy ");
-                String childsBirthYear = sc.next();
+                System.out.println("Enter child's surname");
+                String cSurname = sc.next();
+
+                System.out.println("Enter child's birthdate like 'dd/MM/yyyy ");
+                String cBirthYear = sc.next();
 
                 System.out.println("Enter child's IQ");
-                int childsIQ = sc.nextInt();
+                int cIQ = sc.nextInt();
 
-                Human childAdopted = new Human(childsName, childsSurname, childsBirthYear, childsIQ);
-                fc.adoptChild(fc.getFamilyById(familyIDToAdopt), childAdopted);
-              } else throw new FamilyOverflowException("Family can not include members more than 5!");
+                Human cAdopted = new Human(cName, cSurname, cBirthYear, cIQ);
+                fc.adoptChild(fc.getFamilyById(familyIDToA), cAdopted);
+              } else throw new FamilyOverflowException("Family can not include members more than 4!");
             }
 
           } catch (FamilyOverflowException e) {
             System.out.println(e.getMessage());
           } catch (Exception ex) {
-            System.out.println("You entered wrong input.  Please press enter to go back to main menu");
+            System.out.println("You entered wrong input. Press 'Enter' to go back to main menu");
           }
-
           break;
         }
         case "9": {
@@ -196,7 +196,6 @@ public class Console {
           System.out.println("Data saved!");
           break;
         }
-
       }
     }
   }

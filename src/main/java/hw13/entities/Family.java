@@ -52,7 +52,7 @@ public class Family {
     }
 
     public String prettyFormat() {
-        return String.format("family: \nmother: %s,\nfather: %s,\nchildren:\n%s\npets: %s\n",
+        return String.format("family:\nmother: %s,\nfather: %s,\nchildren:\n%s\npets: %s\n",
                 woman.showHuman(), man.showHuman(), formatChildren(), showPet());
     }
 
@@ -62,7 +62,6 @@ public class Family {
     }
 
     public String formatChildren() {
-        String child;
         StringBuilder sb = new StringBuilder();
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
 
@@ -72,30 +71,25 @@ public class Family {
                     .append("birthDate='").append(formatter.format(ch.getBirthDate())).append("', ")
                     .append("IQ='").append(ch.getIQ()).append("'").append("} \n");
         }
-        child = sb.toString();
-        return child;
+        return sb.toString();
     }
 
     public String showPet() {
-        String pett;
         StringBuilder sb = new StringBuilder();
         for (Pet pet1 : pet) {;
             sb.append("species: ").append(pet1.getSpecies()).append(" nickname: ").append(pet1.getNickname()).append(" age: ").append(pet1.getAge()).append(" tricklevel: ")
                     .append(pet1.getTrickLevel()).append(" habits: ").append(pet1.getHabits());
         }
-        pett = sb.toString();
-        return pett;
+        return sb.toString();
     }
 
     public String formatPet() {
-        String pett;
         StringBuilder sb = new StringBuilder();
         for (Pet pet1 : pet) {
             sb.append(pet1.getSpecies()).append("#").append(pet1.getNickname()).append("#").append(pet1.getAge()).append("#")
                     .append(pet1.getTrickLevel()).append("#").append(pet1.getHabits());
         }
-        pett = sb.toString();
-        return pett;
+        return sb.toString();
     }
 
     public String showFam() {
