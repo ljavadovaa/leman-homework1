@@ -1,5 +1,6 @@
 package hw13.dao;
 
+import hw13.FamilyOverflowException;
 import hw13.entities.Family;
 import hw13.entities.*;
 
@@ -136,7 +137,7 @@ public class CollectionFamilyDao implements FamilyDao {
                 fam.addAll(familyArrayList);
 
             } catch (IOException e) {
-                System.out.printf("'%s' not found! \n", file);
+                new FileNotFoundException();
             }
         }
     }

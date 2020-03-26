@@ -101,10 +101,9 @@ public class FamilyService {
     }
 
     public String prettyFormat() {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < fam.size(); i++)
-            sb.append("family[").append(i+1).append("]:\n").append(fam.get(i).prettyFormat()).append("\n\n");
-        return sb.toString();
+        return famDao.getAllFamilies().stream()
+                .map(family -> String.format("%s\n",family.prettyFormat()))
+                .collect(Collectors.joining());
     }
 
     public Family getFamilyByIndex(int index) {
